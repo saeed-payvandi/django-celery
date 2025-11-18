@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / build
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# Cache / test cache
+.pytest_cache/
+.hypothesis/
+.tox/
+.nox/
+.cache/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+staticfiles/
+
+# Local configs (if not needed in image)
+# Be careful: uncomment ONLY if you provide settings another way
+# config/settings.py
+
+# IDE/tooling
+.idea/
+.vscode/
+.pytype/
+.pyre/
+.mypy_cache/
+.ruff_cache/
+
+# Local-only files
+uploads/
+
+# Docs
+docs/_build/
+
+# Cursor
+.cursorignore
+.cursorindexingignore
+
+# PEP 582
+__pypackages__/
+
+# Custom
+.git
+.gitignore
+.docker
+.env/
