@@ -208,6 +208,5 @@ __marimo__/
 
 #custom
 uploads/
-config/settings.py
 .idea/
 .vscode/

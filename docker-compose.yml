@@ -11,7 +11,7 @@ services:
       - .:/app
     ports:
       - "8000:8000"
-    environment:
-      ALLOWED_HOSTS: "localhost,127.0.0.1"
-      DEBUG: "True"
-      SECRET_KEY: "django-insecure-3+0oagez89+_yv(3wv72ai!7nu*cy@vgl_x@)sx-4t+r63tc$("
+#    environment:
+#      ALLOWED_HOSTS: "localhost,127.0.0.1"
+#      DEBUG: "True"
+#      SECRET_KEY: "test"
