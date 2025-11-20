@@ -22,3 +22,16 @@ services:
 #      SECRET_KEY: "test"
     depends_on:
       - redis
+
+  celery:
+    container_name: celery
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - redis
+
