@@ -1,4 +1,7 @@
 services:
+  redis:
+    image: redis:7.2-alpine
+
   django:
     container_name: django_celery_project
     build:
@@ -11,7 +14,11 @@ services:
       - .:/app
     ports:
       - "8000:8000"
+    env_file:
+      - .env
 #    environment:
 #      ALLOWED_HOSTS: "localhost,127.0.0.1"
 #      DEBUG: "True"
 #      SECRET_KEY: "test"
+    depends_on:
+      - redis

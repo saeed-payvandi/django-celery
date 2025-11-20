@@ -1,41 +1,37 @@
-# Python
+# PYTHON
 __pycache__/
 *.py[cod]
 *.so
 
-# Virtual environments
+# VIRTUAL ENVIRONMENTS
 .venv/
 venv/
 env/
 ENV/
 
-# Distribution / build
+# BUILD / DIST
 build/
 dist/
 .eggs/
 *.egg-info/
 
-# Cache / test cache
+# CACHES / TEMP FILES
 .pytest_cache/
 .hypothesis/
 .tox/
 .nox/
 .cache/
 
-# Jupyter
-.ipynb_checkpoints
+# JUPYTER NOTEBOOK
+.ipynb_checkpoints/
 
-# Django
+# DJANGO
 *.log
 db.sqlite3
 db.sqlite3-journal
 staticfiles/
 
-# Local configs (if not needed in image)
-# Be careful: uncomment ONLY if you provide settings another way
-# config/settings.py
-
-# IDE/tooling
+# IDE / EDITOR
 .idea/
 .vscode/
 .pytype/
@@ -43,21 +39,56 @@ staticfiles/
 .mypy_cache/
 .ruff_cache/
 
-# Local-only files
+# Extra IDEs / Tools
+**/.vscode
+**/.vs
+**/.settings
+**/.classpath
+**/.project
+**/*.*proj.user
+**/.toolstarget
+
+# FRONTEND / NODE
+**/node_modules
+**/npm-debug.log
+
+# LOCAL-ONLY FILES
 uploads/
 
-# Docs
+# DOCUMENTATION
 docs/_build/
 
-# Cursor
+# CURSOR EDITOR
 .cursorignore
 .cursorindexingignore
 
 # PEP 582
 __pypackages__/
 
-# Custom
-.git
+# DEPLOYMENT / KUBERNETES / HELM (optional)
+**/charts
+**/secrets.dev.yaml
+**/values.dev.yaml
+
+# BUILD ARTIFACTS (optional / non-Python)
+**/bin
+**/obj
+**/*.dbmdl
+**/*.jfm
+
+# GIT / ENV FILES
+.git/
 .gitignore
-.docker
+.env
 .env/
+
+# DOCKER / COMPOSE / META
+.docker/
+**/docker-compose*
+**/compose*
+**/Dockerfile*
+**/.dockerignore
+
+# ROOT FILES NOT NEEDED IN IMAGE
+LICENSE
+README.md
