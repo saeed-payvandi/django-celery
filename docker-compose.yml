@@ -36,4 +36,19 @@ services:
       - eshop/.env
     depends_on:
       - redis
+      - django
+
+  stand_alone_celery:
+    container_name: stand_alone_celery
+    build:
+      context: celery_worker
+      dockerfile: Dockerfile
+    command: celery -A celery_base worker -l INFO
+    volumes:
+      - ./celery_worker:/app/
+    env_file:
+      - celery_worker/.env
+    depends_on:
+      - redis
+      - django
 
