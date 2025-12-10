@@ -29,7 +29,7 @@ services:
     build:
       context: eshop
       dockerfile: Dockerfile
-    command: celery --app=config worker -l INFO
+    command: celery --app=config worker -l INFO -Q queue1
     volumes:
       - ./eshop:/app/
     env_file:
@@ -43,7 +43,7 @@ services:
     build:
       context: celery_worker
       dockerfile: Dockerfile
-    command: celery -A celery_base worker -l INFO
+    command: celery -A celery_base worker -l INFO -Q queue2
     volumes:
       - ./celery_worker:/app/
     env_file:
