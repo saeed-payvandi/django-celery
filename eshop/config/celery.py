@@ -10,6 +10,8 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 #     'notifications.tasks.process_data_for_ml': {'queue': 'queue2'},
 # }
 
+# app.conf.task_default_rate_limit = '1/m'
+
 # queue=>celery,celery:1,celery:2,celery:3
 
 app.conf.broker_transport_options = {
