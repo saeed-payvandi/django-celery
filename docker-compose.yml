@@ -38,7 +38,8 @@ services:
       context: eshop
       dockerfile: Dockerfile
     # command: celery --app=config worker -l INFO -Q queue1
-    command: celery --app=config worker -l INFO -Q celery,celery:1,celery:2,celery:3
+#    command: celery --app=config worker -l INFO -Q celery,celery:1,celery:2,celery:3
+    command: celery --app=config worker -l INFO -Q tasks
     volumes:
       - ./eshop:/app/
     env_file:

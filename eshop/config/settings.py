@@ -123,5 +123,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = config('CELERY_BROKER', default='redis://redis:6379/0')
+# CELERY_BROKER_URL = config('CELERY_BROKER', default='redis://redis:6379/0')
+CELERY_BROKER_URL = config('CELERY_BROKER', default='amqp://guest:guest@rabbitmq:5672/')
 CELERY_RESULT_BACKEND = config('CELERY_BACKEND', default='redis://redis:6379/0')
