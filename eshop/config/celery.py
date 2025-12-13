@@ -34,33 +34,42 @@ app.conf.worker_prefetch_multiplier = 1
 app.conf.worker_concurrency = 1
 
 @app.task(queue='tasks')
-def task_1():
+def send_message(mobile, message):
     time.sleep(3)
-    return
+    return f"sms send to user with {mobile} number and message was: {message}"
 
-@app.task(queue='tasks')
-def task_2():
-    time.sleep(3)
-    return
+# The send_message function can be called in two ways:
+# send_message.apply_async(('09123456789', 'this is a test message'))
+# send_message.apply_async(kwargs={'mobile':'09123456789', 'message': 'this is new message'})
 
-@app.task(queue='tasks')
-def task_3():
-    time.sleep(3)
-    return
-
-@app.task(queue='tasks')
-def task_4():
-    time.sleep(3)
-    return
-
-def handle_tasks():
-    task_2.apply_async(priority=2)
-    task_4.apply_async(priority=4)
-    task_1.apply_async(priority=1)
-    task_3.apply_async(priority=3)
-    task_2.apply_async(priority=2)
-    task_4.apply_async(priority=4)
-    task_1.apply_async(priority=1)
-    task_3.apply_async(priority=3)
+# @app.task(queue='tasks')
+# def task_1():
+#     time.sleep(3)
+#     return
+#
+# @app.task(queue='tasks')
+# def task_2():
+#     time.sleep(3)
+#     return
+#
+# @app.task(queue='tasks')
+# def task_3():
+#     time.sleep(3)
+#     return
+#
+# @app.task(queue='tasks')
+# def task_4():
+#     time.sleep(3)
+#     return
+#
+# def handle_tasks():
+#     task_2.apply_async(priority=2)
+#     task_4.apply_async(priority=4)
+#     task_1.apply_async(priority=1)
+#     task_3.apply_async(priority=3)
+#     task_2.apply_async(priority=2)
+#     task_4.apply_async(priority=4)
+#     task_1.apply_async(priority=1)
+#     task_3.apply_async(priority=3)
 
 app.autodiscover_tasks()
