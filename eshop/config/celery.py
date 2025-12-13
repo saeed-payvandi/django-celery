@@ -33,10 +33,10 @@ app.conf.task_default_priority = 5
 app.conf.worker_prefetch_multiplier = 1
 app.conf.worker_concurrency = 1
 
-@app.task(queue='tasks')
-def send_message(mobile, message):
-    time.sleep(3)
-    return f"sms send to user with {mobile} number and message was: {message}"
+# @app.task(queue='tasks')
+# def send_message(mobile, message):
+#     time.sleep(3)
+#     return f"sms send to user with {mobile} number and message was: {message}"
 
 # The send_message function can be called in two ways:
 # send_message.apply_async(('09123456789', 'this is a test message'))
