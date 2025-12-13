@@ -7,6 +7,16 @@ def send_sms_to_user():
     time.sleep(6)
     print('sms has been sent to user')
 
+@shared_task(queue='tasks')
+def short_task():
+    time.sleep(5)
+    return "short task has been done"
+
+@shared_task(queue='tasks')
+def long_task():
+    time.sleep(15)
+    return "long task has been done"
+
 # @shared_task(queue='celery',rate_limit='1/m')
 # def task_1():
 #     time.sleep(3)

@@ -49,6 +49,12 @@ services:
       - django
       - rabbitmq
 
+  flower:
+    image: mher/flower
+    ports:
+      - "5555:5555"
+    environment:
+      - CELERY_BROKER_URL=amqp://guest:guest@rabbitmq:5672/
   # stand_alone_celery:
   #   container_name: stand_alone_celery
   #   build:
