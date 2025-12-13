@@ -23,6 +23,14 @@ services:
 #      SECRET_KEY: "test"
     depends_on:
       - redis
+      - rabbitmq
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
 
   celery:
     container_name: celery
@@ -38,6 +46,7 @@ services:
     depends_on:
       - redis
       - django
+      - rabbitmq
 
   # stand_alone_celery:
   #   container_name: stand_alone_celery
