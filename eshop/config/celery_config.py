@@ -33,6 +33,23 @@ app.conf.task_default_priority = 5
 app.conf.worker_prefetch_multiplier = 1
 app.conf.worker_concurrency = 1
 
+base_dir = os.getcwd()
+task_folder = os.path.join(base_dir, 'notifications', 'app_tasks')
+
+if os.path.exists(task_folder) and os.path.isdir(task_folder):
+    task_module = []
+    for filename in os.listdir(task_folder):
+        if filename.startswith("tasks_") and filename.endswith(".py"):
+            module_name = f"notifications.app_tasks.{filename[:-3]}"
+            module = __import__(module_name, fromlist=['*'])
+
+            for name in dir(module):
+                obj = getattr(module, name)
+                if callable(obj) and name.startswith("task_"):
+                    task_module.append(f"{module_name}.{name}")
+                    
+    app.autodiscover_tasks(task_module)
+
 # @app.task(queue='tasks')
 # def send_message(mobile, message):
 #     time.sleep(3)
@@ -72,4 +89,4 @@ app.conf.worker_concurrency = 1
 #     task_1.apply_async(priority=1)
 #     task_3.apply_async(priority=3)
 
-app.autodiscover_tasks()
+# app.autodiscover_tasks()
