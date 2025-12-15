@@ -1,17 +1,17 @@
-from celery import shared_task
-from celery import group, chain
-import time
-import logging
+# from celery import shared_task
+# from celery import group, chain
+# import time
+# import logging
 
 
-@shared_task(queue="tasks")
-def my_task():
-    try:
-        print('this is my task')
-        raise ValueError('value is not valid')
-    except Exception as e:
-        logging.error('an exception has been occurred. this is text from logging')
-        raise ConnectionError('connection error occurred')
+# @shared_task(queue="tasks")
+# def my_task():
+#     try:
+#         print('this is my task')
+#         raise ValueError('value is not valid')
+#     except Exception as e:
+#         logging.error('an exception has been occurred. this is text from logging')
+#         raise ConnectionError('connection error occurred')
 
 # @shared_task(queue='tasks')
 # def send_sms_to_user():
