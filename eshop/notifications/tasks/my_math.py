@@ -13,7 +13,7 @@ def power(num):
     return num ** 2
 
 
-def run_tasks():
+def run_math_tasks():
     task_chain = chain(custom_sum.s(2, 3), power.s())
     task_chain_result = task_chain.apply_async()
     task_chain_result.get()
